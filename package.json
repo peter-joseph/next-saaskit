@@ -1,5 +1,5 @@
 {
-  "name": "kodomoitsu",
+  "name": "next-saaskit",
   "private": true,
   "scripts": {
     "build": "turbo run build",
