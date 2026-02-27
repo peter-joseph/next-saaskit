@@ -1,0 +1,51 @@
+{
+  "name": "@repo/uxcomponents",
+  "version": "0.0.1",
+  "private": true,
+  "exports": {
+    "./*": "./src/*.tsx"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "@babel/preset-react": "^7.24.1",
+    "@storybook/addon-links": "^10.2.13",
+    "@storybook/blocks": "^8.6.14",
+    "@storybook/react": "^10.2.13",
+    "@storybook/react-vite": "^10.2.13",
+    "@storybook/test": "^8.6.14",
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@types/node": "^22.15.3",
+    "autoprefixer": "^10.4.16",
+    "react": "^19.1.0",
+    "react-docgen-typescript": "^2.2.2",
+    "react-dom": "^19.1.0",
+    "storybook": "^10.2.13",
+    "tailwindcss": "^4.0.0",
+    "tailwindcss-animate": "^1.0.7",
+    "tailwindcss-react-aria-components": "^2.0.1",
+    "typescript": "^5.8.2",
+    "vite": "^7.3.1",
+    "@storybook/addon-docs": "^10.2.13"
+  },
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "lint": "eslint . --max-warnings 0",
+    "generate:component": "turbo gen react-component",
+    "check-types": "tsc --noEmit"    
+  },
+  "dependencies": {
+    "lucide-react": "^0.517.0",
+    "postcss": "^8.4.31",
+    "react-aria-components": "^1.15.0",
+    "tailwind-variants": "^0.3.1"
+  },
+  "resolutions": {
+    "@types/mime": "3.0.4",
+    "jackspeak": "2.1.1",
+    "rollup": "4.43.0"
+  }
+}

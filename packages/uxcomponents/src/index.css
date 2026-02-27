@@ -1,0 +1,34 @@
+@import 'tailwindcss';
+@plugin 'tailwindcss-react-aria-components';
+@plugin 'tailwindcss-animate';
+
+@theme {
+  --color-accent-50:  var(--color-blue-50);
+  --color-accent-100: var(--color-blue-100);
+  --color-accent-200: var(--color-blue-200);
+  --color-accent-300: var(--color-blue-300);
+  --color-accent-400: var(--color-blue-400);
+  --color-accent-500: var(--color-blue-500);
+  --color-accent-600: var(--color-blue-600);
+  --color-accent-700: var(--color-blue-700);
+  --color-accent-800: var(--color-blue-800);
+  --color-accent-900: var(--color-blue-900);
+  --color-accent-950: var(--color-blue-950);
+}
+
+/* Scale up hit targets on high resolution mobile devices. */
+@media (min-resolution: 200dpi) {
+  html {
+    font-size: 18px;
+  }
+
+  .text-sm {
+    /* ensure minimum font size of 16px */
+    font-size: 0.9rem;
+  }
+}
+
+body {
+  @apply bg-white dark:bg-neutral-900;
+  color-scheme: dark light;
+}

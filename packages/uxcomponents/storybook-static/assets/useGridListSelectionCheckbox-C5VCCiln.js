@@ -1,0 +1,1 @@
+import{b as c}from"./useGridListItem-DArTpvoS.js";import{$ as r}from"./useGridSelectionCheckbox-B2XGGqRS.js";function d(e,b){let{key:a}=e;const{checkboxProps:o}=r(e,b);return{checkboxProps:{...o,"aria-labelledby":`${o.id} ${c(b,a)}`}}}export{d as $};

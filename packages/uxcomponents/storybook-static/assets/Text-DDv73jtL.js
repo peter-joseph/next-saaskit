@@ -1,0 +1,1 @@
+import{b as f,c as $}from"./index-BhyzFoYa.js";import{r as a,R as n}from"./iframe-D6Fs4So_.js";const s=a.createContext({}),x=a.forwardRef(function(e,t){[e,t]=f(e,t,s);let{elementType:r="span",...c}=e,o=$[r];return n.createElement(o,{className:"react-aria-Text",...c,ref:t})});export{s as $,x as a};

@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@source "../../../packages/uxcomponents/src";
+@plugin "tailwindcss-react-aria-components";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@theme {
+  /* Webportal accent: indigo/violet */
+  --color-accent-50:  oklch(97% 0.03 285);
+  --color-accent-100: oklch(93% 0.07 285);
+  --color-accent-200: oklch(87% 0.12 285);
+  --color-accent-300: oklch(79% 0.17 285);
+  --color-accent-400: oklch(70% 0.20 285);
+  --color-accent-500: oklch(62% 0.22 285);
+  --color-accent-600: oklch(55% 0.22 285);
+  --color-accent-700: oklch(47% 0.21 285);
+  --color-accent-800: oklch(40% 0.19 285);
+  --color-accent-900: oklch(33% 0.17 285);
+  --color-accent-950: oklch(22% 0.14 285);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
