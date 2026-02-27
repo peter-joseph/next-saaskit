@@ -9,7 +9,7 @@ This is a **Turborepo** monorepo managed with **npm workspaces** (npm@11.6.2, No
 ### Apps
 - `apps/web` — Next.js 16 app (dev port 3000), uses CSS modules
 - `apps/docs` — Next.js 16 app (dev port 3001), uses CSS modules
-- `apps/webportal` — Next.js 16 app with Tailwind CSS + React Aria Components
+- `apps/webportal` — Next.js 16 app (dev port 3000 by default); Tailwind CSS v4 + React Aria Components + React Compiler enabled
 
 ### Packages
 - `packages/uxcomponents` (`@repo/uxcomponents`) — Primary shared component library; built on React Aria Components, styled with Tailwind CSS v4 + tailwind-variants; has Storybook
@@ -45,8 +45,8 @@ npm run format
 
 # Storybook (run from packages/uxcomponents)
 cd packages/uxcomponents
-yarn storybook                     # port 6006
-yarn build-storybook
+npm run storybook                  # port 6006
+npm run build-storybook
 
 # Generate a new React component in uxcomponents
 cd packages/uxcomponents
