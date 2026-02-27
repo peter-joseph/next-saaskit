@@ -1,1 +1,0 @@
-import{$ as r}from"./context-TYPMPinS.js";import{c as o}from"./NumberFormatter-ZLOyqEzC.js";import{r as a}from"./iframe-D6Fs4So_.js";function b(e={}){let{locale:f}=r();return a.useMemo(()=>new o(f,e),[f,e])}export{b as $};
