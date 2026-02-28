@@ -1,135 +1,139 @@
-# Turborepo starter
+# next-saaskit
 
-This Turborepo starter is maintained by the Turborepo core team.
-
-## Using this example
-
-Run the following command:
-
-```sh
-npx create-turbo@latest
-```
+A **Turborepo** monorepo for building SaaS applications with shared UI components, managed with **npm workspaces** (npm@11.6.2, Node >=18).
 
 ## What's inside?
 
-This Turborepo includes the following packages/apps:
+### Apps
 
-### Apps and Packages
+| App | Description | Dev Port |
+|-----|-------------|----------|
+| `apps/web` | Next.js 16 app with CSS modules | 3000 |
+| `apps/docs` | Next.js 16 documentation app with CSS modules | 3001 |
+| `apps/webportal` | Next.js 16 app with Tailwind CSS v4 + React Aria Components + React Compiler | 3000 |
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+### Packages
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+| Package | Name | Description |
+|---------|------|-------------|
+| `packages/uxcomponents` | `@repo/uxcomponents` | Primary shared component library built on React Aria Components, styled with Tailwind CSS v4 + tailwind-variants. Includes Storybook and Jest unit tests. |
+| `packages/ui` | `@repo/ui` | Stub/legacy React component library (minimal, no styles) |
+| `packages/eslint-config` | `@repo/eslint-config` | Shared ESLint configuration |
+| `packages/typescript-config` | `@repo/typescript-config` | Shared `tsconfig.json` bases |
 
-### Utilities
+### Tooling
 
-This Turborepo has some additional tools already setup for you:
+- [TypeScript](https://www.typescriptlang.org/) — static type checking
+- [ESLint](https://eslint.org/) — code linting
+- [Prettier](https://prettier.io) — code formatting
+- [Jest](https://jestjs.io/) + [Testing Library](https://testing-library.com/) — unit testing
+- [Storybook](https://storybook.js.org/) — component development and documentation
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+## Getting Started
 
-### Build
+### Prerequisites
 
-To build all apps and packages, run the following command:
+- Node.js >= 18
+- npm >= 11.6.2
 
-```
-cd my-turborepo
+### Install dependencies
 
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
-```
-
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
-
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
+```bash
+npm install
 ```
 
-### Develop
+## Commands
 
-To develop all apps and packages, run the following command:
+Run all commands from the repo root unless noted otherwise.
 
-```
-cd my-turborepo
+```bash
+# Development (all apps concurrently)
+npm run dev
 
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
+# Develop a single app
+npx turbo dev --filter=web        # port 3000
+npx turbo dev --filter=docs       # port 3001
+npx turbo dev --filter=webportal
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
+# Build all apps
+npm run build
 
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+# Build a single app
+npx turbo build --filter=web
 
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
+# Lint
+npm run lint
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
+# Type checking
+npm run check-types
 
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
+# Format
+npm run format
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+### Storybook (from `packages/uxcomponents`)
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
+```bash
+cd packages/uxcomponents
+npm run storybook        # starts dev server at port 6006
+npm run build-storybook  # builds static Storybook output
 ```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
+### Testing (from `packages/uxcomponents`)
+
+```bash
+cd packages/uxcomponents
+npm run test             # run unit tests
+npm run test:coverage    # run tests with coverage report
+```
+
+### Generate a new component
+
+```bash
+cd packages/uxcomponents
+npm run generate:component  # interactive plop-based generator
+```
+
+## Architecture: `@repo/uxcomponents`
+
+All apps import shared UI from `@repo/uxcomponents`. Components are exported individually (e.g., `import { Button } from "@repo/uxcomponents/Button"`).
+
+**Component conventions:**
+- Each component wraps a corresponding **React Aria Component** (RAC) for accessibility
+- Styling uses **`tailwind-variants`** (`tv()`) for variant composition; `tailwind-merge` resolves class conflicts
+- The `focusRing` base style in `src/utils.ts` is extended by most interactive components
+- `composeRenderProps` from RAC merges render-prop-based classNames with Tailwind classes
+- Components use `'use client'` directives where needed (Next.js)
+
+**Key dependencies:**
+- `react-aria-components` — accessibility primitives
+- `tailwind-variants` — variant-based Tailwind class composition
+- `lucide-react` — icons
+
+**Available components:**
+
+AlertDialog, Breadcrumbs, Button, Calendar, Checkbox, CheckboxGroup, ColorArea, ColorField, ColorPicker, ColorSlider, ColorSwatch, ColorSwatchPicker, ColorThumb, ColorWheel, ComboBox, CommandPalette, DateField, DatePicker, DateRangePicker, Dialog, Disclosure, DisclosureGroup, DropZone, Field, FieldButton, Form, GridList, Link, ListBox, Menu, Meter, NumberField, Popover, ProgressBar, RadioGroup, RangeCalendar, SearchField, Select, Separator, Slider, Switch, Table, Tabs, TagGroup, TextField, TimeField, Toast, ToggleButton, ToggleButtonGroup, Toolbar, Tooltip, Tree
+
+## Turborepo Task Pipeline
+
+Tasks are defined in `turbo.json`:
+- `build` and `check-types` respect dependency order (`^build`, `^check-types`)
+- `dev` runs persistently with no caching
+- `lint` runs after dependencies lint
+
+## Remote Caching
+
+Turborepo supports [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share build artifacts across machines and CI/CD pipelines.
+
+```bash
+npx turbo login   # authenticate with Vercel
+npx turbo link    # link to Remote Cache
 ```
 
 ## Useful Links
 
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+- [Turborepo Docs](https://turborepo.dev/docs)
+- [React Aria Components](https://react-spectrum.adobe.com/react-aria/components.html)
+- [Tailwind CSS v4](https://tailwindcss.com/docs)
+- [tailwind-variants](https://www.tailwind-variants.org/)
+- [Storybook](https://storybook.js.org/docs)

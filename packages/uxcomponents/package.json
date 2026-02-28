@@ -6,19 +6,26 @@
     "./*": "./src/*.tsx"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.29.0",
+    "@babel/preset-react": "^7.24.1",
+    "@babel/preset-typescript": "^7.28.5",
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
-    "@babel/preset-react": "^7.24.1",
+    "@storybook/addon-docs": "^10.2.13",
     "@storybook/addon-links": "^10.2.13",
     "@storybook/blocks": "^8.6.14",
     "@storybook/react": "^10.2.13",
     "@storybook/react-vite": "^10.2.13",
     "@storybook/test": "^8.6.14",
     "@tailwindcss/postcss": "^4.0.0",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^22.15.3",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
-    "@types/node": "^22.15.3",
     "autoprefixer": "^10.4.16",
+    "babel-jest": "^30.2.0",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0",
     "react": "^19.1.0",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^19.1.0",
@@ -27,15 +34,16 @@
     "tailwindcss-animate": "^1.0.7",
     "tailwindcss-react-aria-components": "^2.0.1",
     "typescript": "^5.8.2",
-    "vite": "^7.3.1",
-    "@storybook/addon-docs": "^10.2.13"
+    "vite": "^7.3.1"
   },
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component",
-    "check-types": "tsc --noEmit"    
+    "check-types": "tsc --noEmit",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "lucide-react": "^0.517.0",
