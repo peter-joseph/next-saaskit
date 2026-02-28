@@ -1,0 +1,1 @@
+import{l as i,h as n,t as s}from"./index--cEjw2F8.js";const c=n({base:"outline outline-accent-600 dark:outline-accent-500 forced-colors:outline-[Highlight] outline-offset-2",variants:{isFocusVisible:{false:"outline-0",true:"outline-2"}}});function r(e,o){return i(e,t=>s(o,t))}export{r as c,c as f};

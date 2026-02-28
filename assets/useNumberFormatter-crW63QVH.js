@@ -1,0 +1,1 @@
+import{$ as r}from"./context-m9Gn5ytb.js";import{c as o}from"./NumberFormatter-ZLOyqEzC.js";import{r as a}from"./iframe-CU8xeqI0.js";function b(e={}){let{locale:f}=r();return a.useMemo(()=>new o(f,e),[f,e])}export{b as $};
